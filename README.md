@@ -1,89 +1,81 @@
-Explainable AI for COVID-19 Mortality Prediction Using Machine Learning Models
-📘 Overview
-This project applies machine learning techniques to predict COVID-19 mortality rates and leverages Explainable AI (XAI) methods to interpret the models' predictions. Our goal is not only to build accurate models but also to ensure transparency and trust in their outputs, especially for high-stakes applications like public health forecasting.
+# Explainable AI for COVID-19 Mortality Prediction Using Machine Learning Models
 
-Using a dataset from Kaggle — "COVID-19 Dataset – Country-wise Latest" — we preprocess and analyze key features such as confirmed cases, recoveries, incident rates, and more. We train several machine learning models and apply SHAP (SHapley Additive exPlanations) to interpret the influence of each feature on predicted mortality rates.
+This repository contains the implementation and analysis of various machine learning models for predicting COVID-19 mortality, with a strong emphasis on **interpretability** and **explainability** using tools like **SHAP**, **LIME**, **Partial Dependence Plots**, and more.
 
-🔍 Research Questions
-What are the most influential features in predicting COVID-19 mortality rates across countries?
+## 🧠 Project Overview
 
-How effective is SHAP in explaining model predictions?
+The goal of this project is to build predictive models that are not only **accurate** but also **transparent**. By leveraging publicly available COVID-19 data, we demonstrate how different models make predictions and how explainable AI (XAI) techniques can help reveal the factors driving those predictions.
 
-How can interpretability foster trust and reliability in public health AI systems?
+### Key Features
 
-💡 Key Features
-Multiple ML models: Random Forest, XGBoost, Histogram-based Gradient Boosting, Logistic Regression, Linear Regression, SVC
+- Trained models include:
+  - Random Forest
+  - XGBoost
+  - Histogram-Based Gradient Boosting
+  - Logistic Regression
+  - Linear Regression
+  - Support Vector Classification (SVC)
+  - 1D Convolutional Neural Network (CNN)
 
-Feature importance analysis via SHAP
+- Explainability methods applied:
+  - SHAP (SHapley Additive exPlanations)
+  - LIME (Local Interpretable Model-Agnostic Explanations)
+  - PDP (Partial Dependence Plots)
+  - ICE (Individual Conditional Expectation)
+  - Permutation Feature Importance
 
-Detailed visualizations of global and regional COVID-19 patterns
+## 📊 Dataset
 
-Performance metrics: MAE, RMSE, R²
+We used a publicly available dataset from [Kaggle](https://www.kaggle.com/imdevskp/covid-19-dataset) containing country-wise COVID-19 statistics. Key features include:
 
-🛠️ Methodology
-1. Data Preprocessing
-Removed irrelevant fields
+- Confirmed cases
+- Deaths
+- Recoveries
+- Active cases
+- Incident and mortality rates
 
-Normalized numerical values
+Preprocessing steps included handling missing values, removing irrelevant columns, and normalizing numerical features.
 
-Handled missing entries
+## 🧪 Model Evaluation
 
-Train-test split applied
+Model performance was measured using metrics like:
 
-2. Exploratory Data Analysis (EDA)
-Trend analysis of global and country-specific cases, deaths, and recoveries
+- **Regression Models**: MAE, RMSE, R²
+- **Classification Models**: Accuracy, Precision, Recall, F1 Score
 
-Infection rate visualizations per million
+| Model                    | R² Score | RMSE  | Notable Strength                                   |
+|--------------------------|----------|--------|----------------------------------------------------|
+| XGBoost Regression       | 0.858    | 1.45   | Best overall predictive accuracy                   |
+| CNN Regression           | 0.570    | 2.52   | Captures complex temporal patterns                |
+| Linear Regression        | 0.435    | 2.91   | High interpretability                              |
+| Logistic Regression (Cls)| 0.84 Acc | —      | Solid baseline for severity classification         |
 
-Regional comparisons of mortality and recovery rates
+## 🔍 Explainability Highlights
 
-Correlation analysis (e.g., Population density vs. infection rate)
+- **SHAP** identified **Case Fatality Rate**, **new deaths**, and **recovery ratios** as major mortality predictors.
+- **LIME** offered granular, local instance-level explanations for model predictions.
+- **PDP/ICE** illustrated feature impact patterns (e.g., diminishing returns for recovery rates).
+- **Permutation Importance** confirmed stability and ranking of key features across models.
 
-3. Modeling & Evaluation
-Trained multiple regression-based models
+## 📁 Repository Structure
+├── 3_Models_Abdelaziz_202201827.ipynb # Main Jupyter notebook with code and visualizations
+├── Explainable_AI_Report.pdf # Detailed project report and results
+├── README.md 
 
-Evaluated using:
+## 🧑‍💻 Authors
 
-Mean Absolute Error (MAE)
+- **Abdelaziz ElHelaly Eleisawy**
+- **EzzEldeen Ahmad**
+- **Salma Khairy**
 
-Root Mean Squared Error (RMSE)
 
-R-squared (R²)
 
-4. Explainability
-Applied SHAP to explain predictions
 
-Identified top contributing features per model
 
-Compared global vs regional model behavior
 
-📁 Dataset
-Source: Kaggle COVID-19 Dataset – Country-wise Latest
 
-Columns used: Confirmed, Deaths, Recovered, Active, Incident Rate, Mortality Rate
 
-📷 Visualizations
-The repository includes plots demonstrating:
 
-Daily/weekly growth rates
 
-Case fatality ratios
 
-Recovery vs. active case dynamics
 
-Continental and regional disparities
-
-Population density correlations
-
-🧠 Explainable AI Techniques
-SHAP (SHapley Additive exPlanations): Main tool for feature attribution
-
-Potential for further integration: LIME, Grad-CAM (not yet implemented)
-
-🤝 Contributors
-Abdelaziz ElHelaly Eleisawy
-
-EzzEldeen Ahmad
-
-Salma Khairy
-Faculty of Computational Sciences and Artificial Intelligence, Zewail City
